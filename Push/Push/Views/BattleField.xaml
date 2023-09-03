@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    Shell.TabBarIsVisible="False"
+    BackgroundColor="#2c3a51"
+    iOS:Page.UseSafeArea="True"
+    Shell.NavBarIsVisible="False"
+   
+    x:Class="Push.Views.BattleField">
+    <ContentPage.Resources>
+    <ResourceDictionary>
+
+            <LinearGradientBrush x:Key="MyGradient">
+
+            <GradientStop Color="#45caff" Offset="0" />
+            <GradientStop Color="Gray" Offset="1" />
+
+             </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="MyGradient2">
+
+            <GradientStop Color="#45caff" Offset="0" />
+            <GradientStop Color="#ff1b6b" Offset="1" />
+
+            </LinearGradientBrush>
+    </ResourceDictionary>
+</ContentPage.Resources>
+<AbsoluteLayout BackgroundColor="#2c3a51">
+    
+        <Grid  AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+            <Frame BackgroundColor="Transparent" HorizontalOptions="Fill" HasShadow="False" VerticalOptions="Start">
+          
+
+            <StackLayout
+                        VerticalOptions="Center"
+                Margin="0,0,0,0">
+
+                <Label
+                    Text="Lv:1 - Trainer"
+                    FontSize="{OnPlatform Android='16',iOS='20'}"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    TextColor="LightGray" /> <!-- Light gray text color -->
+
+                <Frame
+                    CornerRadius="5"
+                    BackgroundColor="Gray"
+                    Margin="0,0,0,0"
+                    Padding="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                     HasShadow="False"
+                    WidthRequest="{OnPlatform Android='200',iOS='290'}"
+                    HeightRequest="20">
+
+                    <Frame
+                        BackgroundColor="#45caff"
+                        WidthRequest="200"
+                        HorizontalOptions="Start"
+                        HasShadow="False"> <!-- Disable shadow -->
+
+                    </Frame>
+
+                </Frame>
+                     <Label
+                    Text="HP: 150/150"
+                    FontSize="{OnPlatform Android='16',iOS='20'}"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    TextColor="LightGray" /> 
+                        </StackLayout>
+                    </Frame>
+
+
+            <Frame HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,50" HeightRequest="200" WidthRequest="200"></Frame>
+
+
+
+
+           
+            <Frame BackgroundColor="Transparent" HorizontalOptions="Fill" HasShadow="False"  VerticalOptions="End">
+
+                 <StackLayout
+                        VerticalOptions="Center"
+                Margin="0,0,0,0">
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                      <Frame
+                Background="{StaticResource MyGradient}"
+                WidthRequest="{OnPlatform Android='110',iOS='125'}"
+                CornerRadius="10"
+                HeightRequest="{OnPlatform Android='50',iOS='65'}"
+                Margin="0,0,10,0"
+                Padding="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HasShadow="False"> 
+                
+                <Frame
+                    BackgroundColor="#2c3a51"
+                    CornerRadius="10"
+                    Padding="0"
+                    HeightRequest="{OnPlatform Android='42',iOS='56'}"
+                    WidthRequest="{OnPlatform Android='105',iOS='117'}"
+                    HasShadow="False"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label
+                        Text="ATTACK"
+                        FontSize="24"
+                        FontAttributes="Italic"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        TextColor="LightGray" /> <!-- Light gray text color -->
+                </Frame>
+            </Frame>
+
+                                      <Frame
+                Background="{StaticResource MyGradient}"
+                WidthRequest="{OnPlatform Android='110',iOS='125'}"
+                CornerRadius="10"
+                HeightRequest="{OnPlatform Android='50',iOS='65'}"
+                Margin="0,0,10,0"
+                Padding="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HasShadow="False"> 
+                <Frame.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+
+                            </Frame.GestureRecognizers>
+                <Frame
+                    BackgroundColor="#2c3a51"
+                    CornerRadius="10"
+                    Padding="0"
+                    HeightRequest="{OnPlatform Android='42',iOS='56'}"
+                    WidthRequest="{OnPlatform Android='105',iOS='117'}"
+                    HasShadow="False"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label
+                        Text="REST"
+                        FontSize="24"
+                        FontAttributes="Italic"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        TextColor="LightGray" /> <!-- Light gray text color -->
+                </Frame>
+            </Frame>
+                        </StackLayout>
+                <Label
+                    Text="Lv:5 - Brett"
+                    FontSize="{OnPlatform Android='16',iOS='20'}"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    TextColor="LightGray" /> 
+
+                <Frame
+                    CornerRadius="5"
+                    BackgroundColor="Gray"
+                    Margin="0,0,0,0"
+                    Padding="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                     HasShadow="False"
+                    WidthRequest="{OnPlatform Android='200',iOS='290'}"
+                    HeightRequest="20">
+
+                    <Frame
+                        BackgroundColor="#45caff"
+                        WidthRequest="200"
+                        HorizontalOptions="Start"
+                        HasShadow="False"> <!-- Disable shadow -->
+
+                    </Frame>
+
+                </Frame>
+                     <Label
+                    Text="HP: 150/150"
+                    FontSize="{OnPlatform Android='16',iOS='20'}"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    TextColor="LightGray" /> 
+                        </StackLayout>
+            </Frame>
+
+
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>
+

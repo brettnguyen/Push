@@ -11,8 +11,11 @@ namespace Push
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute("Sets", typeof(SetsPage));
+            Routing.RegisterRoute("Reps", typeof(RepsDifficultyPage));
+            Routing.RegisterRoute("BattleField", typeof(BattleField));
+            
+
         }
 
     }

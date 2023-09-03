@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:local="clr-namespace:Push.Views" xmlns:models="clr-namespace:Push.Models" xmlns:ViewModels="clr-namespace:Push.ViewModels"
+    Shell.TabBarIsVisible="False"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#2d2d30"
+    iOS:Page.UseSafeArea="True"
+    x:Class="Push.Views.RepsDifficultyPage">
+ <ContentPage.Resources>
+    <ResourceDictionary>
+
+            <LinearGradientBrush x:Key="MyGradient">
+
+            <GradientStop Color="#45caff" Offset="0" />
+            <GradientStop Color="Gray" Offset="1" />
+
+             </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="MyGradient2">
+
+            <GradientStop Color="#45caff" Offset="0" />
+            <GradientStop Color="#ff1b6b" Offset="1" />
+
+            </LinearGradientBrush>
+    </ResourceDictionary>
+</ContentPage.Resources>
+ 
+<AbsoluteLayout>
+    <forms:AnimationView
+        x:Name="animationView"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"
+        Animation="data.json"
+        RepeatMode="Infinite"
+        ScaleX="1.4"
+        Scale="1.5"
+        AutoPlay="True"
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand" />
+              <StackLayout>
+          <Frame Padding="10,10,0,0" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="Start">
+                       <Image
+                Source="wbackarrow.png"
+                HeightRequest="25"
+                WidthRequest="25"          
+                Rotation="270"
+               Opacity=".7"
+                VerticalOptions="{OnPlatform Android='Center',iOS='Center'}"
+                HorizontalOptions="Start" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back"/>
+
+                    </Image.GestureRecognizers>
+                    </Image>
+        </Frame>
+   <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                  <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+  
+            <StackLayout>
+       
+        <Frame
+            BackgroundColor="#2c3a51"
+            WidthRequest="{OnPlatform Android='110',iOS='130'}"
+            HeightRequest="{OnPlatform Android='110',iOS='130'}"
+            CornerRadius="{OnPlatform Android='100',iOS='65'}"
+            Padding="0"
+            HasShadow="False"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+           
+            <Image
+                Source="user.png"
+                HeightRequest="90"
+                WidthRequest="90"
+                VerticalOptions="{OnPlatform Android='End',iOS='Center'}"
+                HorizontalOptions="Center" />
+        </Frame>
+
+         <Frame
+            BackgroundColor="#2c3a51"
+            Margin="{OnPlatform Android='0',iOS='0,10,0,0'}"
+            CornerRadius="10"
+            Padding="0"
+            HeightRequest="{OnPlatform Android='90',iOS='115'}"
+            WidthRequest="{OnPlatform Android='240',iOS='270'}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            HasShadow="False"> <!-- Disable shadow -->
+
+            <StackLayout
+                        VerticalOptions="Center" 
+                Margin="0,5,0,0">
+
+                <Label
+                    Text="Lv:5 - Brett Nguyen"
+                    FontSize="{OnPlatform Android='16',iOS='20'}"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    TextColor="LightGray" /> <!-- Light gray text color -->
+
+                <Frame
+                    CornerRadius="5"
+                    BackgroundColor="Gray"
+                    Margin="0,0,0,0"
+                    Padding="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                     HasShadow="False"
+                    WidthRequest="{OnPlatform Android='200',iOS='240'}"
+                    HeightRequest="20">
+
+                    <Frame
+                        BackgroundColor="#45caff"
+                        WidthRequest="90"
+                        HorizontalOptions="Start"
+                        HasShadow="False"> <!-- Disable shadow -->
+
+                    </Frame>
+
+                </Frame>
+
+                <Label
+                    Text="Exp: 75/100"
+                    FontSize="{OnPlatform Android='16',iOS='20'}"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    TextColor="LightGray" />
+            </StackLayout>
+        </Frame>
+          </StackLayout>
+       
+        <CollectionView
+                    ItemsSource="{Binding Diffculties}"
+             SelectedItem="{Binding SelectedDifficulty, Mode=TwoWay}"
+            Margin="{OnPlatform Android='0,10,0,0',iOS='10,25,0,0'}"
+            Grid.Row="2"
+           x:Name="test"
+            SelectionMode="None"
+             BackgroundColor="Transparent"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            
+            >
+                
+  <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Vertical"   ItemSpacing="{OnPlatform Android='25',iOS='40'}"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    
+                                    <DataTemplate>
+                        <StackLayout BackgroundColor="Transparent">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OpenPopup"/>
+
+                            </StackLayout.GestureRecognizers>
+                            
+      <Frame
+                Background="{StaticResource MyGradient}"
+                WidthRequest="300"
+                CornerRadius="10"
+                HeightRequest="{OnPlatform Android='60',iOS='80'}"
+
+                Margin="0,0,10,0"
+                Padding="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HasShadow="False">
+                    
+                <Frame
+                    BackgroundColor="#2c3a51"
+                    CornerRadius="10"
+                    Padding="0"
+                    HeightRequest="{OnPlatform Android='52',iOS='72'}"
+                    WidthRequest="292"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    HasShadow="False">
+                  <Grid HorizontalOptions="Center" >
+                    <Label
+                        Text="{Binding Diffculty}"
+                         FontSize="{OnPlatform Android='24',iOS='28'}"
+                        FontAttributes="Italic"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        TextColor="LightGray" />
+                <Image
+                Source="checkmark.png"
+                HeightRequest="30"
+                WidthRequest="30"
+               IsVisible="{Binding IsChosen}"
+                 Margin="0,0,-45,0"
+                VerticalOptions="{OnPlatform Android='Center',iOS='Center'}"
+                HorizontalOptions="End" />
+                  </Grid>
+                </Frame>
+            </Frame>
+
+       </StackLayout>
+         </DataTemplate>
+         </CollectionView.ItemTemplate>
+        
+        </CollectionView>
+   
+</Grid>
+   </StackLayout>     
+<ContentView IsVisible="{Binding Show}"  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center" VerticalOptions="Start">
+    <ContentView.Content>
+      <StackLayout   BackgroundColor="#2c3a51" HeightRequest="{OnPlatform Android='210',iOS='270'}">
+             <StackLayout Margin="{OnPlatform Android='0',iOS='0,20,0,0'}"  Padding="10">
+                 <AbsoluteLayout>
+                 <Label Text="{Binding PopupTitle}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" TextColor="LightGray" FontSize="Title" HorizontalOptions="CenterAndExpand"/>
+                            <Frame HasShadow="False" Padding="10" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,-20,0,0" AbsoluteLayout.LayoutBounds="0,0,1.9,1.2" AbsoluteLayout.LayoutFlags="All">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ExitPopup"/>
+
+                                </Frame.GestureRecognizers>
+                                <Label HorizontalOptions="Center" VerticalOptions="Center" TextColor="LightGray" Text="X" FontSize="{OnPlatform Android='24',iOS='30'}"  FontAttributes="Bold" ></Label>
+                            </Frame>
+                                </AbsoluteLayout>
+                <Label Text="{Binding PopupText}" FontSize="{OnPlatform Android='16',iOS='20'}" TextColor="LightGray"/>
+                <Button Text="Choose" FontSize="{OnPlatform Android='16',iOS='18'}" Clicked="Choose"  />
+            </StackLayout>
+       </StackLayout>
+    </ContentView.Content>
+</ContentView>
+            </AbsoluteLayout>
+       
+</ContentPage>
