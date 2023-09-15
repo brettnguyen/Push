@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:push="clr-namespace:Push"
     Shell.NavBarIsVisible="False"
     Shell.TabBarIsVisible="False"
     BackgroundColor="#2d2d30"
@@ -28,7 +28,14 @@
             </LinearGradientBrush>
     </ResourceDictionary>
 </ContentPage.Resources>
+    <AbsoluteLayout>
+        <push:CameraView HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"></push:CameraView>
+
+    </AbsoluteLayout>
+    <!--
 <AbsoluteLayout>
+        
     <forms:AnimationView
         x:Name="animationView"
         AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -47,7 +54,7 @@
         VerticalOptions="Start"
         Margin="0,20,0,0">
 
-        <!-- Circular Frames at the top -->
+        
   <Frame
             BackgroundColor="#2c3a51"
             WidthRequest="{OnPlatform Android='110',iOS='130'}"
@@ -58,7 +65,7 @@
             HorizontalOptions="Center"
             VerticalOptions="Center">
 
-            <!-- Content for the inner black frame -->
+      
             <Image
                 Source="user.png"
                 HeightRequest="90"
@@ -122,7 +129,7 @@
 
         <BoxView HeightRequest="20" />
 
-        <!-- Buttons in a horizontal layout -->
+        
         <StackLayout
             Orientation="Horizontal"
             HorizontalOptions="CenterAndExpand">
@@ -155,7 +162,7 @@
                         FontAttributes="Italic"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        TextColor="LightGray"/> <!-- Light gray text color -->
+                        TextColor="LightGray"/> 
                 </Frame>
             </Frame>
   <Frame
@@ -186,7 +193,7 @@
                         FontAttributes="Italic"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        TextColor="LightGray" /> <!-- Light gray text color -->
+                        TextColor="LightGray" /> 
                 </Frame>
             </Frame>
         </StackLayout>
@@ -201,7 +208,7 @@
             WidthRequest="{OnPlatform Android='240',iOS='310'}"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            HasShadow="False"> <!-- Disable shadow -->
+            HasShadow="False"> 
 
             <StackLayout
                         VerticalOptions="Center"
@@ -213,7 +220,7 @@
                     FontAttributes="Italic"
                     HorizontalOptions="Center"
                     VerticalOptions="Start"
-                    TextColor="LightGray" /> <!-- Light gray text color -->
+                    TextColor="LightGray" /> 
 
                 <Frame
                     CornerRadius="5"
@@ -230,7 +237,7 @@
                         BackgroundColor="#45caff"
                         WidthRequest="90"
                         HorizontalOptions="Start"
-                        HasShadow="False"> <!-- Disable shadow -->
+                        HasShadow="False"> 
 
                     </Frame>
 
@@ -242,7 +249,7 @@
                     FontAttributes="Italic"
                     HorizontalOptions="Center"
                     VerticalOptions="Start"
-                    TextColor="LightGray"/> <!-- Light gray text color -->
+                    TextColor="LightGray"/>
             </StackLayout>
         </Frame>
 
@@ -256,7 +263,7 @@
             WidthRequest="{OnPlatform Android='240',iOS='310'}"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            HasShadow="False"> <!-- Disable shadow -->
+            HasShadow="False"> 
 
 
 
@@ -304,7 +311,7 @@
                        VerticalOptions="Center">
                     <Label Text="20" VerticalOptions="Center"  FontSize="{OnPlatform Android='16',iOS='20'}"
                            HorizontalOptions="Center" TextColor="LightGray" ></Label>  
-                    <!-- Content for the inner back frame -->
+                   
                 </Frame>
 
             </Frame>
@@ -332,7 +339,7 @@
                        VerticalOptions="Center">
                     <Label Text="210" VerticalOptions="Center"  FontSize="{OnPlatform Android='16',iOS='20'}"
                            TextColor="LightGray" HorizontalOptions="Center" ></Label>  
-                    <!-- Content for the inner black frame -->
+                    
                 </Frame>
                </Frame>
            </StackLayout>
@@ -344,5 +351,6 @@
         </StackLayout>
     </Grid>
     </AbsoluteLayout>
+-->
 </ContentPage>
 
