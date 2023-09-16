@@ -8,6 +8,7 @@ using Android.Hardware.Camera2.Params;
 using Android.Views;
 using Push;
 using Push.Droid;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using static Android.Views.TextureView;
@@ -102,6 +103,7 @@ namespace Push.Droid
 
                 // Open the front camera
                 _cameraManager.OpenCamera(cameraId, new CameraStateCallback(this), null);
+                RunPushUpCounter.Main();
             }
             catch (CameraAccessException e)
             {
